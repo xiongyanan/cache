@@ -19,10 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'), {
-  etag: false,
-  lastModified: false,
-  cacheControl: false,
-  // maxAge: 10000,
+  etag: true,
+  lastModified: true,
+  // cacheControl: false,
+  maxAge: 10000,
   setHeaders: function(res, path, stat) {
     res.set({
       expires: new Date(Date.now() + 5000)
